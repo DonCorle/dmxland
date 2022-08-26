@@ -46,7 +46,7 @@ function Hero() {
           }
           description="통합 시설관리 서비스"
           button={
-            <Link href="http://localhost:30000/admin/dashboard">
+            <Link href="/main/home">
               <a>
                 <Button xl>시작해보기</Button>
               </a>

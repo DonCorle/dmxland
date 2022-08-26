@@ -7,14 +7,14 @@ import 'animate.css/animate.min.css';
 const Price = () => (
   <Section title="Price" description="가격 정책">
     <AnimationOnScroll
-      animateIn="animate__fadeInDown"
+      animateIn="animate__fadeInUp"
       animateOnce={true}
       delay={2}
     >
       <VerticalFeatureRow
-        title="작업 지시"
-        description="DX Maintenence를 통해 간편하게 작업을 하달하고 처리해보세요"
-        image="/assets/images/work_order.jpeg"
+        title="$100"
+        description="Essential"
+        image="/assets/images/money-bag.png"
         imageAlt="First feature alt text"
       />
     </AnimationOnScroll>

@@ -17,7 +17,7 @@ const Banner = () => (
         title="DX Maintenence에서 모든 인프라 환경을 제어해보세요."
         subtitle="무료로 체험해보세요"
         button={
-          <Link href="http://localhost:30000/auth/login">
+          <Link href="/main/home">
             <a>
               <Button>Sign In</Button>
             </a>
