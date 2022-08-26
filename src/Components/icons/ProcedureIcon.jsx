@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-function ProcedureIcon({ fill = '#6C7281', ...rest }) {
+function ProcedureIcon({ fill = '#ffffff', ...rest }) {
   return (
     <svg
       viewBox="0 0 24 24"

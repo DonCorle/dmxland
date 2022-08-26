@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-function CategoryIcon({ fill = '#3B81F6', ...rest }) {
+function CategoryIcon({ fill = '#ffffff', ...rest }) {
   return (
     <svg
       viewBox="0 0 24 24"

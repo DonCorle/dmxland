@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-function WorkorderIcon({ fill = '#6C7281', ...rest }) {
+function WorkorderIcon({ fill = '#ffffff', ...rest }) {
   return (
     <svg
       viewBox="0 0 24 24"
