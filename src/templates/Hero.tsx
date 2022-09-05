@@ -1,5 +1,6 @@
 import React from 'react';
 
+import Cookies from 'js-cookie';
 import Link from 'next/link';
 
 import { Background } from '../background/Background';
@@ -29,31 +30,52 @@ function Hero() {
             </button>
           </li>
           <li>
-            <Link href="http://localhost:30000/auth/register">
+            <Link href="/auth/register">
               <a>Sign Up</a>
             </Link>
           </li>
         </NavbarTwoColumns>
       </Section>
 
-      <Section yPadding="pt-5 pb-32">
-        <HeroOneButton
-          title={
-            <>
-              {'Welcome to\n'}
-              <span className="text-primary-950">DX Maintenence</span>
-            </>
-          }
-          description="통합 시설관리 서비스"
-          button={
-            <Link href="/main/home">
-              <a>
-                <Button xl>시작해보기</Button>
-              </a>
-            </Link>
-          }
-        />
-      </Section>
+      {Cookies.get('isLogin') === 'true' ? (
+        <Section yPadding="pt-5 pb-32">
+          <HeroOneButton
+            title={
+              <>
+                {'Welcome to\n'}
+                <span className="text-primary-950">DX Maintenence</span>
+              </>
+            }
+            description="통합 시설관리 서비스"
+            button={
+              <Link href="/main/home">
+                <a>
+                  <Button xl>시작해보기</Button>
+                </a>
+              </Link>
+            }
+          />
+        </Section>
+      ) : (
+        <Section yPadding="pt-5 pb-32">
+          <HeroOneButton
+            title={
+              <>
+                {'Welcome to\n'}
+                <span className="text-primary-950">DX Maintenence</span>
+              </>
+            }
+            description="통합 시설관리 서비스"
+            button={
+              <Link href="/auth/login">
+                <a>
+                  <Button xl>시작해보기</Button>
+                </a>
+              </Link>
+            }
+          />
+        </Section>
+      )}
     </Background>
   );
 }

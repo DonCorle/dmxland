@@ -4,14 +4,14 @@ import classNames from 'classnames';
 import Image from 'next/image';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
+import { Settings, Power } from 'react-feather';
 
+import { unsetToken } from '../lib/auth';
 import {
   CollapsIcon,
   HomeIcon,
-  LogoutIcon,
   UsersIcon,
   WorkorderIcon,
-  CategoryIcon,
   ProcedureIcon,
 } from './icons';
 
@@ -23,20 +23,18 @@ const menuItems = [
     icon: WorkorderIcon,
     link: '/main/workorders',
   },
-  { id: 3, label: 'Team & Users', icon: UsersIcon, link: '/main/users' },
   {
-    id: 4,
-    label: 'Categories',
-    icon: CategoryIcon,
-    link: '/main/categories',
-  },
-  {
-    id: 5,
+    id: 3,
     label: 'Procedure Library',
     icon: ProcedureIcon,
     link: '/main/procedures',
   },
+  { id: 4, label: 'Team & Users', icon: UsersIcon, link: '/main/users' },
 ];
+
+const logout = () => {
+  unsetToken();
+};
 
 function Sidebar() {
   const [toggleCollapse, setToggleCollapse] = useState(false);
@@ -98,7 +96,7 @@ function Sidebar() {
               alt="로고 이미지"
             />
             <span
-              className={classNames('mt-2 text-lg font-medium text-text', {
+              className={classNames('mt-2 text-lg font-bold text-text', {
                 hidden: toggleCollapse,
               })}
             >
@@ -145,15 +143,30 @@ function Sidebar() {
         </div>
       </div>
 
-      <div className={`${getNavItemClasses({})} px-3 py-4`}>
-        <div style={{ width: '2.5rem' }}>
-          <LogoutIcon />
+      <div className="align-bottom">
+        <div className={`${getNavItemClasses({})} px-3 py-4`}>
+          <div style={{ width: '2.5rem' }}>
+            <Settings />
+          </div>
+          {!toggleCollapse && (
+            <span className={classNames('text-md font-medium text-text-light')}>
+              <Link href="/main/settings">Settings</Link>
+            </span>
+          )}
         </div>
-        {!toggleCollapse && (
-          <span className={classNames('text-md font-medium text-text-light')}>
-            <Link href="/">Logout</Link>
-          </span>
-        )}
+        <div className={`${getNavItemClasses({})} px-3 py-4`}>
+          <div style={{ width: '2.5rem' }}>
+            <Power />
+          </div>
+          {!toggleCollapse && (
+            <span
+              className={classNames('text-md font-medium text-text-light')}
+              onClick={logout}
+            >
+              <Link href="/">Logout</Link>
+            </span>
+          )}
+        </div>
       </div>
     </div>
   );

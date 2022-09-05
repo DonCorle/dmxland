@@ -63,5 +63,7 @@ module.exports = {
     },
   },
   variants: {},
-  plugins: [],
+  /* eslint-disable global-require */
+  plugins: [require('@tailwindcss/forms')({ strategy: 'class' })],
+  /* eslint-enable global-require */
 };
