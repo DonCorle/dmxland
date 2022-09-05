@@ -1,5 +1,6 @@
 import { useState } from 'react';
 
+import Link from 'next/link';
 import { useRouter } from 'next/router';
 
 import { fetcher } from '../../lib/api';
@@ -100,6 +101,11 @@ const Register = () => {
             Sign Up
           </button>
         </form>
+        <div className="text-sm text-primary-600 font-semibold">
+          <Link href="/auth/login">
+            <a>로그인</a>
+          </Link>
+        </div>
       </div>
     </div>
   );
